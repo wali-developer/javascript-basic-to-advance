@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built - in Functions</title>
+</head>
+<body>
+    <script>
+        // built-in objects / function (Math)
+        // function to generate random numbers between two values max and min
+        function randomNumbers(min, max){
+            return Math.random() * (max - min) + min;
+        }
+        console.log(randomNumbers(5, 10));
+
+        // loop will generate 10 random numbers between 0 to 1.
+        for(let i = 0; i < 12; i++){
+            console.log(randomNumbers(0, 1));
+        }
+
+        // String object built-in functions
+        const message = new String('Welcome to JavaScript Programming...');
+        const msg = 'This is primitive string..'
+        console.log(message.indexOf('to'));
+        console.log(message.replace('Welcome', 'Most Welcome'));
+        console.log(message.toUpperCase());
+        console.log(message.trim());
+        console.log(message.split());
+        console.log(typeof(message));
+        console.log(typeof(msg));
+
+        // Date functions
+        const date = new Date();
+        console.log('Today date is :',date.getDate());
+        console.log('Date :',date.toDateString());
+        console.log(date.toTimeString());
+        console.log(date.toISOString());
+    </script>
+</body>
+</html>

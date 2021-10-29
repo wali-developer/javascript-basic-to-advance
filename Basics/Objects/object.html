@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        // Object
+        const company = {
+            employees : 56,
+            address : "abc",
+            user : {            // create another nested object in object
+                name: "khan",
+                age : 23,
+            },
+            sum (num1, num2){       // create function in object
+                return num1 + num2;
+            },
+            isVisible : true
+        };
+        console.log(company.user);
+        console.log(company.sum(3,6));
+
+
+        // Factory function to create an object
+        console.log("The objects created from construction function");
+        function user(dept){
+            return {
+                name : "Khan",
+                dept,
+                experience(){
+                    console.log("I have 2 years of Experience in Web Development");
+                }
+            };
+        }
+        const user1 = user("Software Engineering");    // create an object from factory function
+        const user2 = user("Computer Science");    // create an another object with different argument from factory function
+        const user3 = user("LLB Sharia Law"); 
+
+        console.log(user1);
+        console.log(user2);
+        console.log(user3);
+
+
+        // Construction function to create an object
+        console.log("The objects created from construction function");
+        function ConstFunction(radius){
+            this.radius = radius;
+            this.user = function(){
+                console.log("this is function");
+            }
+            this.boolean = true;
+            zipCode = 76768;
+        }
+
+        const obj1 = new ConstFunction(56);         // create an object from factory function
+        const obj2 = new ConstFunction(30);         // create another object from factory function
+        const obj3 = ConstFunction.call({}, 11);    //this is another method(call) to create an object, that's why we also called functions are the objects b/c we use fuction property to create an object
+
+        delete obj1.radius;         // removing property from obj1, this is dynaming nature of an object
+        obj1.color = 'Green';       // adding property to obj1
+        
+        console.log(obj1);
+        console.log(obj2);
+
+        // reference type / object type
+        let x = {
+            name : "abc",
+            address : "dfjg",
+            draw(){
+                console.log('This is paragraph');
+            }
+        };
+        let y = x;
+        x.name = 'xyz';
+        console.log(x);
+
+        for(let key of Object.keys(x)){         //use object enumrating property to print object values
+            console.log(key, x[key]);
+        }
+
+        if('address' in x)
+            console.log('Yes');
+    </script>
+</body>
+</html>

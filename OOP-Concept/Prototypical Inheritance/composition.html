@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composition</title>
+</head>
+<body>
+    <script>
+        // use of composition over inheritance
+
+        //mixin that assign two objects to another constructor object
+        function mixin(targetConstructor, ...sources){      // rest operator used to create an array of multiples argument
+            Object.assign(targetConstructor.prototype, ...sources);   // spread operator used to spread souces array
+        }
+        const canEat = {
+            eat: function(){
+                this.hunger--;
+                console.log('Eating...');
+            }
+        };
+
+        // Objects
+        const canWalk = {
+            walk: function(){
+                console.log('Walking...');
+            }
+        };
+
+        const canSwim = {
+            swim: function(){
+                console.log('Swiming...');
+            }
+        };
+
+        // constructor
+        function Person(){
+            //...
+        }
+
+        // call to mixin to add objects in constructor
+        mixin(Person, canEat, canWalk);
+
+        const person = new Person();
+        console.log(person);
+
+        // another constructor
+        function Fish(){
+            //...
+        }
+
+        mixin(Fish, canEat, canSwim);
+
+        const fish = new Fish();
+        console.log(fish);
+
+    </script>
+</body>
+</html>

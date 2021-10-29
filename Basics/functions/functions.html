@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNCTIONS</title>
+</head>
+
+<body>
+    <script>
+        // Functions Expression
+        // store the function in variable
+        let run = function () {
+            console.log('He is Sleeping...');
+        }
+        run();
+        let move = run;         // store the function in another variable
+        move();
+
+
+        // Hoisting problem with function expression
+        // Hoisting is the process of moving function declaration to the top
+        // hello();    //this will give error b/c we can't access the function that store in varaiable before ftn initialization
+        let hello = function () {
+            console.log('Welcome...');
+        }
+        hello();
+
+        circle();          // we can access the function before it's declaration 
+        function circle() {
+            console.log('The area of circle is 50');
+        }
+
+
+        // Arguments object
+        function sum() {
+            let total = 0;
+            console.log(arguments);
+            for (let value of arguments)     // arguments object used as function parameters
+                total += value;
+            return total;
+        }
+        console.log(sum(4, 5, 6, 3, 2, 9));
+
+
+        function sum2(...args) {      // rest operator use of arguments
+            let total = 0;
+            for (let value of args)     // arguments object used as function parameters
+                total += value;
+            return total;
+        }
+        console.log(sum2(4, 5, 6, 3, 2, 9));
+
+
+        // function that calculate the sum of all prices of the Cart without discount
+        function sum3(discount, ...prices) {
+            let total = prices.reduce((a, b) => a + b);
+            return total * (1 - discount);
+        }
+        console.log('Total price of the Cart products is :', sum3(0.1, 5, 6, 3, 2, 9));
+
+
+        // Getter and Setter
+
+        let user = {
+            firstName: 'Muhammad',
+            lastName: 'Abbas',
+            // get fullName(){
+            //     return `The full Name of user is "${user.firstName} ${user.lastName}"`;
+            // }
+            set fullName(name) {
+                let userName = name.split(' ');
+                this.firstName = userName[0];
+                this.lastName = userName[1];
+            },
+            study: 'He is studying Software Engineering',
+            set occupation(occup) {
+                let studying = occup.split();
+                this.study = studying;
+            }
+        };
+        // set values
+        let fullName = user.fullName = 'Azlan khan';
+        let occupation = user.occupation = `${fullName} is a software engineer`;
+
+        // print values
+        console.log('The full Name of user is :', fullName);
+        console.log(occupation);
+        // console.log(user.fullName);
+
+        console.log(user);
+
+
+        // Error handling in set value
+        const user1 = {
+            firstName: 'Muhammad',
+            lastName: 'Abbas',
+            set fullName(value) {
+                if (typeof value !== 'string') {
+                    throw new Error('The value must be a String...');
+                }
+
+                let value1 = value.split(' ');
+                if (value1.length !== 4) {
+                    throw new Error('Enter the first and last name');
+                }
+
+                this.firstName = value1[0];
+                this.lastName = value1[1];
+            }
+        }
+        try {
+            console.log(user1.fullName = 'Sajjad Khan');
+        }
+        catch (e) {
+            alert(e);
+        }
+
+        // 
+    </script>
+</body>
+
+</html>

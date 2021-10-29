@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this keyword</title>
+</head>
+<body>
+    <script>
+        // this keyword
+        const video = {
+            title: "Title of the Video",
+            play(){
+                console.log(this);      // this will return video object
+            }
+        }
+        video.stop = function(){
+            console.log(this);
+        }
+
+        video.play();
+        video.stop();
+
+        // use this in function
+        function abc(){
+            console.log(this);
+        }
+        const xyz = new abc();
+        xyz.title = 'Title';
+
+        abc();
+        console.log(xyz);
+
+        // use of this keyword in call back function
+        const video1 = {
+            title: 'a',
+            tags: ['a','b', 'c'],
+            showTags(){
+                this.tags.forEach(tag => console.log(this.title, tag));  // we can use 'this' in callback ftn using arrow ftn
+                
+                this.tags.forEach(function(tag){
+                    console.log(this.title, tag);
+                }.bind(this))        // this is another way to use this in call back ftn with bind method
+            }
+        }
+        video1.showTags();
+    </script>
+</body>
+</html> 

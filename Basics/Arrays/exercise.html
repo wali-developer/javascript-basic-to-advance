@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAY EXERCISE</title>
+</head>
+<body>
+    <script>
+        // the function takes two arguments and checks if the element exist in array or not
+        const numbers = [1, 2, 3, 4, 5, 6];
+        function includes(array, searchElement){
+            for(let element of array)
+                if(element === searchElement)
+                    return 'Yes, the element is present in array.';
+                return 'Sorry! the element is not present in Array.';
+        }
+        console.log(includes(numbers, 5));
+
+
+        // the function takes two arguments and return a new array except for one element
+        const numbersArray = [1, 2, 3, 4, 5, 6];
+
+        function except(array, removeArray){
+            let newArray = [];
+            for(let element of array){
+                if(!removeArray.includes(element))
+                newArray.push(element);
+            }
+            return newArray;
+        }
+
+        // call to function
+        console.log(except(numbersArray, [4,5,6]));
+
+        // function to takes an array and array element and return count of the given element
+        function countOccurence(array, countElement){
+            let count = 0;
+            for(let element of array){
+                if(element === countElement)
+                    count++;
+            }
+            return count;
+        }
+
+        const countArray = [1, 2, 3, 4, 5, 6, 1, 2, 1, 1];
+        console.log("The number is comes ", countOccurence(countArray, 1), "times in array");
+        
+    </script>
+</body>
+</html>

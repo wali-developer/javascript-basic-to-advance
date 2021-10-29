@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuction Exercise</title>
+</head>
+<body>
+    <script>
+        // create a ftn that takes multiple numbers args and calculate the sum of all args
+        function sum(...values){    
+            const num = values.reduce((a, b) => a + b);
+            console.log('The sum of all argument is :', num);
+        }
+        sum(2, 3, 4, 5, 6, 7, 8 ,10);
+
+        // const arr = [2, 3, 4, 5, 6, 7, 8 ,10];   // we are also pass an array to function
+        // sum(arr)
+        
+
+        // create an object then create a functon inside it that return the area of circle
+        const circle = {
+            radius: 4,
+            get area(){
+                return Math.PI * (this.radius * this.radius);
+            }
+        }
+        console.log(circle.area);
+
+
+        // create an count occurence function and add error handling method on it
+        function countOccurence(array, countElement){
+            if(!Array.isArray(array))
+                throw new Error ('Invalid input...')
+
+            let count = 0;
+            for(let element of array){
+                if(element === countElement)
+                    count++;
+            }
+            return count;
+        }
+
+        
+        try{
+            const countArray = [1, 2, 3, 4, 5, 6, 1, 2, 1, 1];
+            // const countArray = true;
+            console.log("The number is repeat ", countOccurence(countArray, 1), "times in array");
+        }
+        catch(exception){
+            console.log(exception);
+        }
+        
+    </script>
+</body>
+</html>

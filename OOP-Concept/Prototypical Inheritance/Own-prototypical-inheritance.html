@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypical Inheritance</title>
+</head>
+<body>
+    <script>
+        function extend (Child, Parent){       // we can inherit methods by calling this functon
+            Child.prototype = Object.create(Parent.prototype);
+            Child.prototype.constructor = Child;        // assigning circle constructor to circle object
+        }
+        // Creating your own prototypical inheritance
+        function Circle (radius, length){
+            Shape.call(this, length);      // inheriting the length property of shape object
+            this.radius = radius;
+        }
+
+        // prototypical inheritance
+        extend(Circle, Shape);         
+
+        Circle.prototype.draw = function(){
+            console.log('This is draw method (own prototype');
+        }
+
+        // another constructor function
+        function Shape (length){
+            this.length = length;
+        }
+        Shape.prototype.duplicate = function(){
+            console.log('This is the function that will be inherited to Circle object');
+        }
+
+        // another constructor function
+        function Square(size){
+            this.size - size;
+        }
+
+        extend(Square, Shape);
+
+        Square.prototype.duplicate = function(){    // duplicate method overrided   
+            Shape.prototype.duplicate.call(this);   // duplicate method of shape inherited in sqare object.
+            console.log('duplicate Overrided...');
+        }
+
+        // objects
+        const shapes = [
+            new Circle(4, 10),
+            new Shape(10),
+            new Square(15)
+        ];
+        
+        for(let shape of shapes)        // polymorphism..
+            shape.duplicate();
+    
+        let c = new Circle(4, 10);
+        let s = new Shape(10);
+        let sq = new Square(15);
+        //console.log(c.draw());
+    </script>
+</body>
+</html>

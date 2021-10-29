@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter and Setter</title>
+</head>
+<body>
+    <script>
+        function Circle(radius,title){
+            this.title = title;
+            this.radius = radius;
+
+            // private member
+            let area = 5;
+            this.CircleArea = function(){
+                return area;
+            };
+        }
+        
+        // console.log(circle.CircleArea());     // access private member
+
+        Object.defineProperty(this, 'area', {
+            get: function () {          
+                return area;
+            },
+            set: function (value) {     // set private member property value
+                if(!typeof value == Number)
+                    throw new Error('Invalid Input...');
+                area = value;
+            }
+        });
+
+        
+        try{
+            const circle = new Circle(3, 'a');      // create object of constructor function
+            const a = circle.area = 'false';          // give value with help of setter
+            console.log(a);
+        }
+        catch(e){
+            console.log(circle);
+        }
+        
+    </script>
+</body>
+</html>

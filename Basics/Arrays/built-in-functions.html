@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array concat() method
+        const user = ['khan', 23, 'developer'];
+        const skill = ['programming', 'java', 'JavaScript'];
+
+        console.log(user.concat(skill));
+
+        // Array slice() method
+        console.log(skill.slice(0,2));
+
+        // combining arrays using spread operator
+        const marks = [34, 56, 77];
+        const marks1 = [55, 43, 87];
+        const marks2 = [65, 73, 37];
+
+        const totalMarks = [...marks, ...marks1, ...marks2];
+        console.log(totalMarks);
+        console.log(`The length of the Array is : ${totalMarks.length}`);
+
+        // Iterating an array
+        console.log('forEach method example that print array index and element')
+        skill.forEach((index, skill) => console.log(skill, index));    //iterating the skill array with forEach functon.
+
+        for(let key in user){           //iterating array with for-in loop.
+            console.log(key, user[key]);
+        }
+
+        // Array join() method
+        const arr1 = ['Afnan', 22, 'peshawar'];
+        console.log(arr1.join(' - '));    //created string from array with join
+
+        // Array split() method
+        const message = 'This is some random text to apply split method';
+        console.log(message.split(' '));     //this creat an array from string and split it into 9 words.
+
+        // Array method includes()
+        const arr2 = [33, 44, 55, 66, 77, 88, 11];
+        console.log(arr2.includes(44));     // includes() methods checks an elements exist an array or not
+
+        const arr3 = [4, 4, 3, 2];
+        console.log(arr3.fill(1, 1, 3));     //it will fill 0 from position 1 to 3
+
+        //filter() method creates a new array with the elements that pass the condition that figure in function.
+        console.log(skill.filter(word => word.length > 5)); 
+
+        // Array map method
+        console.log('Array Map() method')
+        console.log(arr3.map(x => x * 3));   //map() method is used to perform some operation on every element of the array
+
+        // sort method of array
+        const colors = ['Red', 'White', 'Green', 'Yellow', 'Pink', 'black', 'blue'];
+        console.log('The sorted array is :')
+        console.log(colors.sort());
+
+    </script>
+</body>
+</html>

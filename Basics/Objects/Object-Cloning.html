@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // cloning an object means duplicating an object to another
+        const user = {
+            name : 'Khan',
+            email : 'email@gmail.com',
+            address : 'xyz',
+            age : 23,
+            work(){
+                console.log("This is my work");
+            }
+        };
+
+        const user1 = Object.assign({}, user);      // object.assign() method is use for creating object from another object
+        const user2 = {...user};                // spread operator with object is also use for cloning an object.
+        console.log(user);          
+        console.log(user1);       
+        console.log(user2);   
+        
+        
+        // Cloning 
+        const circle = {
+            radius : 5,
+            xcoord : 230,
+            ycoord : 300,
+            nestedCircle : {
+                bacground : "Red",
+                color : 'white'
+            },
+            draw(){
+                console.log('Draw a Circle');
+            }
+        };
+
+        // now to clone the object
+        console.log('The cloning objects are :');
+        const circle1 = {...circle};
+        const circle2 = Object.assign({}, circle1);
+
+        console.log(circle1);
+        console.log(circle2);
+
+        //the assign is the object method to create an duplicate object, and reference types have many methods
+    </script>
+</body>
+</html>

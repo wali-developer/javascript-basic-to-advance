@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypes</title>
+</head>
+<body>
+    <script>
+        const x = {x: 'a', y: 'b'};
+        const y = {};
+        console.log(x);
+        console.log(y);
+
+        const array = [];
+        console.log(array);
+
+        // instance vs prototype members
+        function Circle(radius){
+            this.radius = radius;
+
+            this.draw = function(){
+                console.log('Draw');
+            };
+
+            this.circ = function(){
+                console.log('Circumstances..');
+            }
+        }
+
+        // add prototype method to object that display in prototype object
+        Circle.prototype.move = function(){
+            this.circ();
+            console.log('This is move function');
+        }
+
+        const circle = new Circle(4);
+        console.log(circle);
+
+        // iterate object with loop to print all the prototype and own members of object
+        for (let key in circle)
+            console.log(key);
+    </script>
+</body>
+</html>

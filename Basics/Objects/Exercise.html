@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Exercise</title>
+</head>
+<body>
+    <script>
+        // Object Exercise
+        // the function that return object properties and values.
+        function user(){
+            return{
+                name : 'Asim Raza',
+                age : 25,
+                contact : 7675588,
+                data(){
+                    experience : '2-years';
+                },
+            }
+        }
+        console.log(user());
+
+        // the factory function that takes object values from user
+        function student(rollNo, name, dept, marks){
+            return{
+                rollNo,
+                name, 
+                dept, 
+                marks
+            }
+        }
+        const s1 = student(180936, 'Khan', 'SE', 450);
+        const s2 = student(180930, 'Atif', 'CS', 410);
+        console.log(s1);
+        console.log(s2);
+
+        // the construction function that takes object values from user
+        function teacher(name, speciality, salary, scale){
+            this.name = name;
+            this.speciality = speciality;
+            this.salary = salary;
+            this.scale = scale;
+        }
+
+        //create objects teacher to call to function
+        const t1 = new teacher('Dr. Atif khan', 'Data mining', 1700000, 19);
+        const t2 = new teacher('Dr. Mansoor Nasir', 'Web Engineer', 1300000, 18);
+        const t3 = new teacher('Dr. Mansoor Nasir', 'Web Engineer', 1300000, 18);
+
+        //print the objects
+        console.log(t1);
+        console.log(t2);
+
+        // function to take two objects and checks if the objects are equal or not
+        function areEqual(t2, t3){
+            if(t2 === t3)
+                return 'The objects are equal';
+            else
+                return 'The objects are not equal';;
+        }
+        console.log(areEqual(t2, t3));       //the both are the same properties but equal b/c objects are store with differnt address in memory
+
+        // Blog post object
+        const blogPost = {
+            title : 'this is title',
+            body : "This is some text of the blog body",
+            auther : 'Wali Ullah',
+            views : 'Good blog post',
+            comment : {
+                auther : 'Asad',
+                body : 'this is comment body'
+            },
+            isLive : 'Yes'
+        }
+        console.log(blogPost);
+
+        // the constructor function that return an drafted post object
+        function post(title, body, auther, comment, isLive){
+            this.title = title;
+            this.body = body;
+            this.auther = auther;
+            this.comment = [];
+            this.isLive = isLive;
+        }
+        console.log(post);
+
+
+        // array of objects
+        const PriceRange = [
+            {
+                label : '$', 
+                tooltip : 'Inexpesive', 
+                minPerPerson : '0', 
+                maxPerPerson : '10', 
+                avgPerPerson : '5', 
+                off : '50%',
+                brand : 'Pakistani',
+                stock : 'Yes'
+            },
+            {
+                label : '$$', 
+                tooltip : 'moderate', 
+                minPerPerson : '10', 
+                maxPerPerson : '20', 
+                avgPerPerson : '10', 
+                off : '40%',
+                brand : 'Pakistani',
+                stock : 'Yes'
+            },
+            {
+                label : '$$$', 
+                tooltip : 'Expesive', 
+                minPerPerson : '20', 
+                maxPerPerson : '30', 
+                avgPerPerson : '15', 
+                off : '30%',
+                brand : 'Pakistani',
+                stock : 'Yes'
+            },
+        ];
+        console.log(PriceRange);
+    </script>
+</body>
+</html>

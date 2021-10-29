@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arryas find method</title>
+</head>
+<body>
+    <script>
+        const courses = [           //array that has two objects
+            {id : 1, name : 'programming'},
+            {id : 2, name : 'testing'}
+        ];
+
+        const found = courses.find(function (subject){        
+            return subject.id === 2;           //find the subject that has id = 2
+        });
+        console.log(found);         //print the found element
+    </script>
+</body>
+</html>

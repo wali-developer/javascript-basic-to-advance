@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACK</title>
+</head>
+<body>
+    <script>
+        // Implementation of Stack datatype.
+        const _items = new WeakMap();
+        class Stack {
+            constructor(){
+                _items.set(this, []);
+            }
+
+            push(value){
+                _items.get(this).push(value);
+            }
+
+            pop(){
+                if(_items.get(this).length === 0)
+                    throw new Error('Stack is empty...');
+
+                return `${_items.get(this).pop()} Successfully deleted from the Stack`;
+            }
+
+            peek(){
+                const items = _items.get(this);
+
+                if(_items.get(this).length === 0)
+                    throw new Error('Stack is empty...');
+
+                return `${items[items.length - 1]} is on the top of Stack`;
+            }
+
+            get count(){
+                return `There is ${_items.get(this).length} items in the Stack;`  
+            }
+        }
+
+        const st = new Stack();
+        console.log(st)
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X- UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+</head>
+
+<body>
+    <script>
+        // STOP WATCH   
+        function StopWatch() {
+            let startTime, endTime, running, duration = 0;
+
+            Object.defineProperty(this, 'duration', {
+                get: function () {
+                    return duration;
+                },
+                set: function(value){
+                    duration = value;
+                }
+            });
+
+            Object.defineProperty(this, 'running', {
+                get: function () {
+                    return running;
+                },
+                // set: function(value){
+                //     running = value;
+                // }
+            });
+
+            Object.defineProperty(this, 'endTime', {
+                get: function () {
+                    return endTime;
+                }
+            });
+
+            Object.defineProperty(this, 'startTime', {
+                get: function () {
+                    return startTime;
+                }
+            });
+        }
+
+        StopWatch.prototype.start = function () {
+            if (this.running)
+                throw new Error('Stop watch has already started...');
+
+            this.running = true;
+            this.startTime = new Date();
+        };
+
+        StopWatch.prototype.stop = function () {
+            if (!this.running)
+                throw new Error('Stop watch has not started yet...');
+
+            this.running = false;
+            this.endTime = new Date();
+
+            const seconds = (this.endTime.getTime()) - (this.startTime.getTime()) / 1000;
+            this.duration += seconds;
+        };
+
+        StopWatch.prototype.reset = function () {
+            this.startTime = null;
+            this.endTime = null;
+            this.running = false;
+            this.duration = 0;
+        };
+
+        let sw = new StopWatch();
+        console.log(sw);
+
+    </script>
+</body>
+
+</html>

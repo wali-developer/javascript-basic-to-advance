@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //-- print even numbers with for loop---
+        console.log("Even Numbers : ");
+        for(let i = 0; i <= 5; i++){
+            if(i % 2 == 0){
+                console.log(i);
+            }
+        }
+
+        //-- print odd numbers with for loop---
+        console.log("Odd Numbers : ");
+        for(let i = 0; i <= 5; i++){
+            if(i % 2 !== 0){
+                console.log(i);
+            }
+        }
+
+        //-- print even numbers with while loop---
+        let i = 0;
+        console.log("Even Numbers with while loop : ");
+        while(i <= 10){
+            if(i == 6) break;
+            if(i % 2 == 0){
+                console.log(i);
+            }
+            i++;
+        }
+
+        //-- print odd numbers with do-while loop ---
+        let x = 0;
+        console.log("odd Numbers with do-while loop : ");
+        do{
+            if(x % 2 !== 0){
+                console.log(x);
+            } 
+            x++;
+        }while(x <= 10);
+
+        //-- for-in loop ---
+        const user = {
+            Name: "Khan",
+            Age: 25,
+            Dept: "Software Engineering",
+            Address: "Peshawar",
+            Email: "user@gmail.com",
+            Phone: 76879878
+        };
+
+        for(let key in user){
+            console.log(key,  '-', user[key]);
+        }
+
+        // for-in loop in array
+        const colors = ['Green', 'Yellow', 'Red', 'White', 'Blue'];
+        console.log('Here is the index and values of Array');
+        for(let index in colors){
+            console.log(index, ':', colors[index]);
+        }
+
+        // for-of loop in array
+        //for-of loop deals with just the value
+
+        for(let value of colors){
+            console.log(value);
+        }
+
+    </script>
+</body>
+</html>

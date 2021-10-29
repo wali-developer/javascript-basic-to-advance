@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Exercise</title>
+</head>
+<body>
+    <script>
+        // the fuction that takes two value and return maximum value.
+        function max(value1, value2){
+            if(value1 > value2) 
+                return value1;
+            else
+                return value2;   
+        }
+        console.log('The greater value is :');
+        console.log(max(47650, 78415));
+
+        // the fuction that takes two width and height and return width if greater.
+        function isLandscape(width, height){
+            if(width > height) return ('The width is Greater than Height :'+true); 
+            else return ('The Height is Greater than Width :'+false);
+        }
+
+        console.log(isLandscape(800, 600));
+
+        // The function that takes an array and return the truthy values.
+        let arr = [2, 5, '', true, undefined, null, false];
+        function countTruthy(arr){
+            let count = 0;
+            console.log('The number of truthy values of Array is :')
+            for(let value of arr)
+                if(value)
+                count++;
+            return count;
+        }
+        console.log(countTruthy(arr));
+
+        // The function that takes an object and return only values of object
+        const object = {
+            key1 : 'property1',
+            key2 : 656,
+            key3 : 'property3',
+            key4 : true,
+        }
+        console.log('The String properties of the Object is :')
+        function showProperties(obj){
+            for(let key in obj){
+                if(typeof obj[key] === 'string')
+                    console.log(key, obj[key]);
+            }   
+        }
+        showProperties(object);
+
+        // The function that a number value and print stars
+        showStars(6);
+        function showStars(rows){
+            for(let row = 1; row <= rows; row++){
+                let str = '';
+                for(let col = 0; col < row; col++)
+                    str += '*';
+                console.log(str);
+            }
+        }
+
+        // The function that takes a limit and return the prime numbers
+        /*console.log('Prime numbers :');
+        showPrime(25);
+        function showPrime(limit){
+            for(let number = 2; number <= limit; number++){
+                let isPrime = true;
+                for(let factor = 2; factor < number; factor++){
+                    if(number % factor === 0){
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if(isPrime)
+                console.log(number);
+            }   
+        }*/
+
+        //-- the function that check the number is prime or not --
+        function isPrime(number){
+            for(let fac = 2; fac < number; fac++)
+                if(number % fac === 0)
+                    return false;
+
+            return true;
+        }
+
+        function showPrime(limit){
+            for(let number = 2; number <= limit; number++)
+                if(isPrime(number)) console.log(number);
+        }
+        console.log('Prime numbers :');
+        showPrime(20);
+
+    </script>
+</body>
+</html>

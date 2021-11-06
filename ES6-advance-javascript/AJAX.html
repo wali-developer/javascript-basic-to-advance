@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX (Loading data from Server)</title>
+</head>
+<body>
+    <h2>AJAX ( LOADING DATA FROM SERVER OR FILE )</h2>
+    <div id="text"></div>
+    <button onclick="loadData()">CLICK TO LOAD DATA</button>
+
+    <script>
+        // ======= function to load data from the server or file ========
+        function loadData(){
+            document.getElementById("text").innerHTML = "Please wait second, while loading data form the server...";
+            var xhttp = new XMLHttpRequest();         //object of the class XMLHttpRequest / request for data
+            xhttp.onreadystatechange = function(){    // function to check 4 states of readyState
+                /* Four states of requesting to server for data (readyState)
+                0) Request not iniatialized
+                1) server connection established
+                3) request received
+                4) processing data
+                5) request finised and reponse are ready  */
+                if(this.readyState == 4 && this.status == 200){
+                   document.getElementById("text").innerHTML = this.responseText;
+                }
+                else if(this.readyState == 3 && this.status == 404){
+                    document.getElementById("text").innerHTML = "File not found";
+                }
+            };
+            xhttp.open('GET', "https://jsonplaceholder.typicode.com/users", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

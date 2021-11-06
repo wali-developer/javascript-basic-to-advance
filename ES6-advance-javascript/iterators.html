@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT ITERATORS LOOP</title>
+</head>
+<body>
+    
+
+    <script>
+        /** iterators is work same as loop
+         * in iterators we can traverse the arrays, stings, objects etc with our decison to print which value in array or in anything else **/
+
+         let arr = [65, 86, 87, 66, 33, 88, 101];
+         let arr1 = arr[Symbol.iterator]();
+
+        let result = arr1.next();
+        document.write("Traversing Array using Iterator loop <br>");
+        while(!result.done){
+            document.write(result.value + "<br>");
+            result = arr1.next();
+        }
+    </script>
+</body>
+</html>

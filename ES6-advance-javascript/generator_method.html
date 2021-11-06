@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT GENERATOR METHOD</title>
+</head>
+<body>
+    
+
+    <script>
+        //====== generator method =====
+        "use strict"
+        function *generatit(){
+            let yArray = [yield, yield, yield, yield];            //yield array
+            console.log(`ARRAY : ${yArray}`);
+            yield ["Php, Angular, Java"];
+            yield 180936;
+            yield "The yield number 1";
+            yield "The yield number 2";
+            yield true;
+            yield "The yield number 3";
+        }
+        let g = generatit();
+        g.next(300);
+        g.next("PHP");       //value pass to yield array
+        g.next("JAVASCRIPT");        //value pass to yield array
+        g.next("NODE JS");           //value pass to yield array
+        g.next("REACT");             //value pass to yield array
+        //console.log(g.return());          //no object or value will print after return().
+
+        for(let value of g){
+            console.log(value);
+        }
+
+    </script>

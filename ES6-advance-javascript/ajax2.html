@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="LoadData()">click to load data</button>
+    <script>
+      // ajax call
+      const LoadData = () => {
+        console.log("Please wait a second while loading data...");
+        setTimeout(() => {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = check;
+          xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+          xhttp.send();
+        }, 1000);
+
+        function check() {
+          if (this.readyState === XMLHttpRequest.DONE) {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log("Data GET successfully..." + this.responseText);
+            } else {
+              console.log("Field to load data...");
+            }
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

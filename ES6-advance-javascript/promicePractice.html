@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const prom = new Promise((resolve, reject) => {
+        console.log("Please wait while promices is resolving...");
+        setTimeout(() => {
+          console.log("First promice has been resolved...");
+          resolve(10);
+        }, 2000);
+      });
+
+      const prom2 = new Promise((resolve, reject) => {
+        console.log("Await...");
+        setTimeout(() => {
+          try {
+            console.log("Second promice has been resolved...");
+            resove(20);
+          } catch (err) {
+            reject("Promice has been reject:" + err);
+          }
+        }, 3000);
+      });
+
+      prom
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      prom2
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>
